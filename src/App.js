@@ -7,7 +7,7 @@ import TaskList from './components/TaskList';
 function App() {
  const [tasks, setTasks] = useState([])
 const createTask=(title,taskDesc)=>{
-   const createdTasks=[
+   const createTask=[
     ...tasks,{
       id:Math.round(Math.random()*999999),
       title:title,
@@ -16,11 +16,17 @@ const createTask=(title,taskDesc)=>{
    ];
    setTasks(createTask);
 }
+const deleTetaskByid=(id)=>{
+ const afterDeletingTasks=tasks.filter((task)=>{
+  return task.id!==id;
+ });
+ setTasks(afterDeletingTasks);
+}
   return (
     <div className="App">
      <TaskCreate onCreate={createTask}/>
      <h1>Görevler</h1>
-     <TaskList/>
+     <TaskList tasks={tasks} onDelete={deleTetaskByid}/>
     </div>
   );
 }
