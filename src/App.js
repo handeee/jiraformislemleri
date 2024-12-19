@@ -22,11 +22,14 @@ const deleTetaskByid=(id)=>{
  });
  setTasks(afterDeletingTasks);
 }
+const taskedit=(edit)=>{
+  console.log(edit)
+}
   return (
     <div className="App">
      <TaskCreate onCreate={createTask}/>
      <h1>Görevler</h1>
-     <TaskList tasks={tasks} onDelete={deleTetaskByid}/>
+     <TaskList tasks={tasks} onDelete={deleTetaskByid} onEdit={taskedit}/>
     </div>
   );
 }
